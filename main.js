@@ -25,24 +25,38 @@ function displayRoom (room) {
         elementButton[i].onclick = null;
     }
 
+    if (elementSubText < elementSubText.length) {
+        elementSubText == null;
+
+    } else {
+        elementSubText.display = 'none';
+    }
+
 };
+
+// function enterName () {
+//     let name = document.createElement('input');
+   
+// };
+
+
 
 let rooms = [
     {
         elementHeadingText: 'Welcome to the castle',
-        elementText: 'Welcome to the game',
-        elementSubText: 'Start by clicking the button',
+        elementText: 'Your misson is to open up a coffin that you will find in one of \n the rooms and you also need to find the key to open up the coffin',
+        elementSubText: 'Enter your name: ',
         buttons: [
             {
-                'textNode': 'Start the game by pressing the button',
+                'textNode': 'Start game',
                 'func': function () {displayRoom(rooms[1])}
             }
         ]
     },
     {
-        elementHeadingText: 'Welcome to room 2',
-        elementText: 'Welcome to another room',
-        elementSubText: 'Start by clicking the button',
+        elementHeadingText: 'Welcome to room number 2',
+        elementText: 'Explore the castle by choosing a room to enter',
+        elementSubText: '',
         buttons: [
             {
                 'textNode': 'Gå tillbaka till rum 1',
