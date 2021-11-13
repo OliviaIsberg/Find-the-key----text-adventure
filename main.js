@@ -59,37 +59,41 @@ let rooms = [
         elementSubText: '',
         buttons: [
             {
-                'textNode': 'Gå tillbaka till rum 1',
+                'textNode': 'Go back to first room',
                 'func': function () {displayRoom(rooms[0])}
             },
             {
-                'textNode': 'Gå till vänster om dig till rum 3',
+                'textNode': 'Go to your left into room number three',
                 'func': function () {displayRoom(rooms[2])}
             },
             {
-                'textNode': 'Gå rakt fram till rum 5',
+                'textNode': 'Go straight ahead into room number five',
                 'func': function () {displayRoom(rooms[4]);}
             },
             {
-                'textNode': 'Gå till höger om dig till rum 4',
+                'textNode': 'Go to your right into room number four',
                 'func': function () {displayRoom(rooms[3]);}
             }
         ]
     },
     {
-        elementHeadingText: 'Welcome to room 3',
-        elementText: 'Welcome to room 3',
-        elementSubText: 'Start by clicking the button',
+        elementHeadingText: 'Welcome to room three',
+        elementText: 'You found the coffin!',
+        elementSubText: '',
         buttons: [
             {
-                'textNode': 'Utforska kistan',
+                'textNode': 'Open coffin',
                 'func': function () {displayRoom(rooms[2]);}
+            },
+            {
+                'textNode': 'Go back and choose another room',
+                'func': function () {displayRoom(rooms[1]);}
             }
 
         ]
     },
     {
-        elementHeadingText: 'Welcome to room 4',
+        elementHeadingText: 'Welcome to room four',
         elementText: 'Welcome to room 4',
         elementSubText: 'Start by clicking the button',
         buttons: [
@@ -104,12 +108,16 @@ let rooms = [
         ]
     },
     {
-        elementHeadingText: 'Welcome to room 5',
-        elementText: 'Welcome to room 5',
-        elementSubText: 'Start by clicking the button',
+        elementHeadingText: 'Welcome to room five',
+        elementText: 'You found the key!',
+        elementSubText: 'Do you want to pick up the key?',
         buttons: [
             {
-                'textNode': 'Do you want to pick up the key?',
+                'textNode': 'Yes',
+                'func': function () {displayRoom(rooms[4]);}
+            },
+            {
+                'textNode': 'No',
                 'func': function () {displayRoom(rooms[4]);}
             }
         ]
