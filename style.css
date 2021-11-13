@@ -1,0 +1,20 @@
+body {
+    min-height: 100%;
+}
+
+.flex{display: flex;}
+.justify-center{justify-content: center;}
+.align-center{align-items: center;}
+.grid{display: grid;}
+.column{flex-direction: column;}
+
+.containerButtons {
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+}
+
+main {
+    min-height: 100vh;
+}
+
+
