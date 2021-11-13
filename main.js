@@ -34,11 +34,18 @@ function displayRoom (room) {
 
 };
 
+//funktion där man skriver sitt namn och namnet visas på skärmen
+// funktionen tar även bort inputfält när knapp är tryckt
+
 function name () {
-    let nameInput = document.getElementById('nameInput').value;
-    let nameOutput = document.getElementById('welcomeName').innerText = nameInput;
-    elementButton.onclick = nameOutput;
-};
+    add = document.getElementById('nameInput').append('nameInput');
+   let nameInput = document.getElementById('nameInput').value;
+   let nameOutput = document.getElementById('nameOutput').innerText = nameInput;
+   
+   remove = document.getElementById('nameInput').remove();
+}; 
+
+
 
 
 
@@ -59,8 +66,12 @@ let rooms = [
         elementSubText: 'Enter your name: ',
         buttons: [
             {
-                'textNode': 'Start game',
+                'textNode': 'Submit',
                 'func': function () {name(rooms[1])}
+            },
+            {
+                'textNode': 'Start game',
+                'func': function () {displayRoom(rooms[1])}
             }
         ]
     },
