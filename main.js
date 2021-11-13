@@ -34,10 +34,21 @@ function displayRoom (room) {
 
 };
 
-// function enterName () {
-//     let name = document.createElement('input');
-   
-// };
+function name () {
+    let nameInput = document.getElementById('nameInput').value;
+    let nameOutput = document.getElementById('welcomeName').innerText = nameInput;
+    elementButton.onclick = nameOutput;
+};
+
+
+
+// function enterName() {
+//     let nameInput = document.getElementById('nameInput').value;
+//     let nameOutput =  document.getElementById('welcomeName').innerHTML = nameInput;
+
+// }
+
+// enterName()
 
 
 
@@ -49,7 +60,7 @@ let rooms = [
         buttons: [
             {
                 'textNode': 'Start game',
-                'func': function () {displayRoom(rooms[1])}
+                'func': function () {name(rooms[1])}
             }
         ]
     },
