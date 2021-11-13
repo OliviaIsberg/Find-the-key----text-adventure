@@ -4,9 +4,13 @@ let elementButton = document.getElementsByName('optionButton');
 
 let elementSubText = document.getElementById('subText');
 
+let elementHeadingText = document.getElementById('headingText');
+
 function displayRoom (room) {
     elementText.innerText = room.elementText;
     elementSubText.innerText = room.elementSubText;
+    elementHeadingText.innerText = room.elementHeadingText;
+
 
     let i = 0;
 
@@ -25,6 +29,7 @@ function displayRoom (room) {
 
 let rooms = [
     {
+        elementHeadingText: 'Welcome to the castle',
         elementText: 'Welcome to the game',
         elementSubText: 'Start by clicking the button',
         buttons: [
@@ -35,6 +40,7 @@ let rooms = [
         ]
     },
     {
+        elementHeadingText: 'Welcome to room 2',
         elementText: 'Welcome to another room',
         elementSubText: 'Start by clicking the button',
         buttons: [
@@ -57,6 +63,7 @@ let rooms = [
         ]
     },
     {
+        elementHeadingText: 'Welcome to room 3',
         elementText: 'Welcome to room 3',
         elementSubText: 'Start by clicking the button',
         buttons: [
@@ -68,6 +75,7 @@ let rooms = [
         ]
     },
     {
+        elementHeadingText: 'Welcome to room 4',
         elementText: 'Welcome to room 4',
         elementSubText: 'Start by clicking the button',
         buttons: [
@@ -82,6 +90,7 @@ let rooms = [
         ]
     },
     {
+        elementHeadingText: 'Welcome to room 5',
         elementText: 'Welcome to room 5',
         elementSubText: 'Start by clicking the button',
         buttons: [
