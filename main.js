@@ -84,15 +84,15 @@ let rooms = [
             },
             {
                 'textNode': 'Go to your left into room number three',
-                'func': function () {displayRoom(rooms[2])}
+                'func': function () {displayRoom(rooms[3])}
             },
             {
                 'textNode': 'Go straight ahead into room number five',
-                'func': function () {displayRoom(rooms[4]);}
+                'func': function () {displayRoom(rooms[5]);}
             },
             {
                 'textNode': 'Go to your right into room number four',
-                'func': function () {displayRoom(rooms[3]);}
+                'func': function () {displayRoom(rooms[4]);}
             }
         ]
     },
@@ -103,27 +103,23 @@ let rooms = [
         buttons: [
             {
                 'textNode': 'Open coffin',
-                'func': function () {displayRoom(rooms[2]);}
+                'func': function () {displayRoom(rooms[3]);}
             },
             {
                 'textNode': 'Go back and choose another room',
-                'func': function () {displayRoom(rooms[1]);}
+                'func': function () {displayRoom(rooms[2]);}
             }
 
         ]
     },
     {
         elementHeadingText: 'Welcome to room four',
-        elementText: 'Welcome to room 4',
-        elementSubText: 'Start by clicking the button',
+        elementText: 'There is no key in this room',
+        elementSubText: 'Click the button to choose another room',
         buttons: [
             {
-                'textNode': 'There is no key here you stupid',
-                'func': function () {displayRoom(rooms[3]);}
-            },
-            {
-                'textNode': 'Go back to where you came from idiot',
-                'func': function () {displayRoom(rooms[1]);}
+                'textNode': 'Click me',
+                'func': function () {displayRoom(rooms[2]);}
             }
         ]
     },
@@ -134,11 +130,11 @@ let rooms = [
         buttons: [
             {
                 'textNode': 'Yes',
-                'func': function () {displayRoom(rooms[4]);}
+                'func': function () {displayRoom(rooms[3]);}
             },
             {
                 'textNode': 'No',
-                'func': function () {displayRoom(rooms[4]);}
+                'func': function () {displayRoom(rooms[2]);}
             }
         ]
     }
