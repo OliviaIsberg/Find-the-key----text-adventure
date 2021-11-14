@@ -1,3 +1,4 @@
+//Hämtar ut element ifrån dom
 let elementText = document.getElementById('text');
 
 let elementButton = document.getElementsByName('optionButton');
@@ -10,9 +11,6 @@ function displayRoom (room) {
     elementText.innerText = room.elementText;
     elementSubText.innerText = room.elementSubText;
     elementHeadingText.innerText = room.elementHeadingText;
-
-
-    let i = 0;
 
     for(i = 0; i < room.buttons.length; i++) {
         elementButton[i].innerText = room.buttons[i].textNode;
@@ -37,15 +35,8 @@ function displayRoom (room) {
 //funktion där man skriver sitt namn och namnet visas på skärmen
 // funktionen tar även bort inputfält när knapp är tryckt
 
-function name () {
-    add = document.getElementById('nameInput').append('nameInput');
-   let nameInput = document.getElementById('nameInput').value;
-   let nameOutput = document.getElementById('nameOutput').innerText = nameInput;
-   
-   remove = document.getElementById('nameInput').remove();
-}; 
 
-
+ 
 
 
 
@@ -69,10 +60,17 @@ let rooms = [
                 'textNode': 'Submit',
                 'func': function () {name(rooms[1])}
             },
+        ]
+    },
+    {
+        elementHeadingText: 'Welcome to the castle',
+        elementText: 'Your misson is to open up a coffin that you will find in one of \n the rooms and you also need to find the key to open up the coffin',
+        elementSubText: 'Enter your name: ',
+        buttons: [
             {
-                'textNode': 'Start game',
-                'func': function () {displayRoom(rooms[1])}
-            }
+                'textNode': 'Startgame',
+                'func': function () {displayRoom(rooms[2])}
+            },
         ]
     },
     {
@@ -82,7 +80,7 @@ let rooms = [
         buttons: [
             {
                 'textNode': 'Go back to first room',
-                'func': function () {displayRoom(rooms[0])}
+                'func': function () {displayRoom(rooms[1])}
             },
             {
                 'textNode': 'Go to your left into room number three',
@@ -144,6 +142,25 @@ let rooms = [
             }
         ]
     }
+  
 ];
+
+function name (room) {
+    let nameInput = document.getElementById('nameInput').value;
+    let nameOutput = document.getElementById('nameOutput').innerText = nameInput;
+    let removeNameInput = document.getElementById('nameInput').remove();
+    elementSubText.innerText = "Welcome to the game";
+
+    for(i = 0; i < room.buttons.length; i++) {
+        elementButton[i].innerText = room.buttons[i].textNode;
+        elementButton[i].onclick = room.buttons[i].func;
+        // elementButton[i].innerText = 'startgame'
+    }
+
+    for(i = i; i < elementButton.length; i++) {
+        elementButton[i].style.display = 'none';
+        elementButton[i].onclick = null;
+    }
+}; 
 
 displayRoom(rooms[0]);
