@@ -28,10 +28,10 @@ startButton.addEventListener('click', function() {
     startButton.classList.toggle('visible', false);
     nameOutput.style.display = 'none';
 
-    displayRoom(screens[0]);
+    displayScreen(screens[0]);
 });
 
-function displayRoom (room) {
+function displayScreen (room) {
     elementHeadingText.innerText = room.header;
     elementText.innerText = room.text;
     elementSubText.innerText = room.subText;
@@ -56,7 +56,7 @@ let screen = [
         buttons: [
             {
                 'text': 'Go into the hallway',
-                'action': function() {displayRoom(screens[1])}
+                'action': function() {displayScreen(screens[1])}
             },
         ]
     },
@@ -67,19 +67,19 @@ let screen = [
         buttons: [
             {
                 'text': 'Go back to first room',
-                'action': function() {displayRoom(screens[0])}
+                'action': function() {displayScreen(screens[0])}
             },
             {
                 'text': 'Go to your left into room number three',
-                'action': function() {displayRoom(screens[2])}
+                'action': function() {displayScreen(screens[2])}
             },
             {
                 'text': 'Go straight ahead into room number five',
-                'action': function() {displayRoom(screens[4]);}
+                'action': function() {displayScreen(screens[4]);}
             },
             {
                 'text': 'Go to your right into room number four',
-                'action': function() {displayRoom(screens[3]);}
+                'action': function() {displayScreen(screens[3]);}
             }
         ]
     },
@@ -90,11 +90,11 @@ let screen = [
         buttons: [
             {
                 'text': 'Open the chest',
-                'action': function() {displayRoom(screens[1]);}
+                'action': function() {displayScreen(screens[1]);}
             },
             {
                 'text': 'Go back and choose another room',
-                'action': function() {displayRoom(screens[1]);}
+                'action': function() {displayScreen(screens[1]);}
             }
 
         ]
@@ -106,7 +106,7 @@ let screen = [
         buttons: [
             {
                 'text': 'Click me',
-                'action': function() {displayRoom(screens[1]);}
+                'action': function() {displayScreen(screens[1]);}
             }
         ]
     },
@@ -118,11 +118,11 @@ let screen = [
             {
                 'text': 'Yes',
                 'isVisible': function() {return state.haveKey === false},
-                'action': function() {state.haveKey = true; displayRoom(screens[2]);}
+                'action': function() {state.haveKey = true; displayScreen(screens[2]);}
             },
             {
                 'text': 'No',
-                'action': function() {displayRoom(screens[1]);}
+                'action': function() {displayScreen(screens[1]);}
             }
         ]
     }
