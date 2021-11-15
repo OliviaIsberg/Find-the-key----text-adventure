@@ -39,7 +39,7 @@ input {
     margin: auto;
 }
 
-.style-button {
+button {
     margin-top: 1rem;
     color: #333;
     background-color: #6FFAB0;
@@ -48,8 +48,9 @@ input {
     font-weight: 700;
 }
 
-.style-button:hover {
+button:hover {
     background-color: #42BF7C;
+    box-shadow: 6px 6px 2px 1px rgba(21, 95, 64, 0.2);
 }
 
 
