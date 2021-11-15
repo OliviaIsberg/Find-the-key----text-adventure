@@ -1,11 +1,35 @@
 //Hämtar ut element ifrån dom
 let elementText = document.getElementById('text');
-
 let elementButton = document.getElementsByName('optionButton');
-
 let elementSubText = document.getElementById('subText');
-
 let elementHeadingText = document.getElementById('headingText');
+let nameInput = document.getElementById('nameInput');
+let submitName = document.getElementById('submit');
+let nameOutput = document.getElementById('nameOutput');
+let startButton = document.getElementById('start');
+
+let state = {
+    name: null,
+    haveKey: false
+};
+
+submitName.addEventListener('click', function() {
+    state.name = nameInput.value;
+
+    nameInput.style.display = 'none';
+    submitName.style.display = 'none';
+    startButton.classList.toggle('visible', true)
+
+    elementSubText.innerText = "Welcome to the game";
+    nameOutput.innerText = state.name;
+});
+
+startButton.addEventListener('click', function() {
+    startButton.classList.toggle('visible', false);
+    nameOutput.style.display = 'none';
+
+    displayRoom(rooms[0]);
+});
 
 function displayRoom (room) {
     elementText.innerText = room.elementText;
@@ -14,62 +38,25 @@ function displayRoom (room) {
 
     for(i = 0; i < room.buttons.length; i++) {
         elementButton[i].innerText = room.buttons[i].textNode;
-        elementButton[i].onclick = room.buttons[i].func;
-        elementButton[i].style.display = '';
+        elementButton[i].onclick = room.buttons[i].action;
+        elementButton[i].classList.toggle('visible', true);
     }
 
     for(i = i; i < elementButton.length; i++) {
-        elementButton[i].style.display = 'none';
+        elementButton[i].classList.toggle('visible', false);
         elementButton[i].onclick = null;
     }
-
-    if (elementSubText < elementSubText.length) {
-        elementSubText == null;
-
-    } else {
-        elementSubText.display = 'none';
-    }
-
-};
-
-//funktion där man skriver sitt namn och namnet visas på skärmen
-// funktionen tar även bort inputfält när knapp är tryckt
-
-
- 
-
-
-
-// function enterName() {
-//     let nameInput = document.getElementById('nameInput').value;
-//     let nameOutput =  document.getElementById('welcomeName').innerHTML = nameInput;
-
-// }
-
-// enterName()
-
-
+}
 
 let rooms = [
     {
         elementHeadingText: 'Welcome to the castle',
-        elementText: 'Your misson is to open up a coffin that you will find in one of \n the rooms and you also need to find the key to open up the coffin',
-        elementSubText: 'Enter your name: ',
+        elementText: 'Now you can start exploring the castle!',
+        elementSubText: '',
         buttons: [
             {
-                'textNode': 'Submit',
-                'func': function () {name(rooms[1])}
-            },
-        ]
-    },
-    {
-        elementHeadingText: 'Welcome to the castle',
-        elementText: 'Your misson is to open up a coffin that you will find in one of \n the rooms and you also need to find the key to open up the coffin',
-        elementSubText: 'Enter your name: ',
-        buttons: [
-            {
-                'textNode': 'Startgame',
-                'func': function () {displayRoom(rooms[2])}
+                'textNode': 'Go into the hallway',
+                'action': function() {displayRoom(rooms[1])}
             },
         ]
     },
@@ -80,34 +67,34 @@ let rooms = [
         buttons: [
             {
                 'textNode': 'Go back to first room',
-                'func': function () {displayRoom(rooms[1])}
+                'action': function() {displayRoom(rooms[0])}
             },
             {
                 'textNode': 'Go to your left into room number three',
-                'func': function () {displayRoom(rooms[3])}
+                'action': function() {displayRoom(rooms[2])}
             },
             {
                 'textNode': 'Go straight ahead into room number five',
-                'func': function () {displayRoom(rooms[5]);}
+                'action': function() {displayRoom(rooms[4]);}
             },
             {
                 'textNode': 'Go to your right into room number four',
-                'func': function () {displayRoom(rooms[4]);}
+                'action': function() {displayRoom(rooms[3]);}
             }
         ]
     },
     {
         elementHeadingText: 'Welcome to room three',
-        elementText: 'You found the coffin!',
+        elementText: 'You found the chest!',
         elementSubText: '',
         buttons: [
             {
-                'textNode': 'Open coffin',
-                'func': function () {displayRoom(rooms[3]);}
+                'textNode': 'Open the chest',
+                'action': function() {displayRoom(rooms[1]);}
             },
             {
                 'textNode': 'Go back and choose another room',
-                'func': function () {displayRoom(rooms[2]);}
+                'action': function() {displayRoom(rooms[1]);}
             }
 
         ]
@@ -119,7 +106,7 @@ let rooms = [
         buttons: [
             {
                 'textNode': 'Click me',
-                'func': function () {displayRoom(rooms[2]);}
+                'action': function() {displayRoom(rooms[1]);}
             }
         ]
     },
@@ -130,33 +117,19 @@ let rooms = [
         buttons: [
             {
                 'textNode': 'Yes',
-                'func': function () {displayRoom(rooms[3]);}
+                'isVisible': function() {return state.haveKey === false},
+                'action': function() {state.haveKey = true; displayRoom(rooms[2]);}
             },
             {
                 'textNode': 'No',
-                'func': function () {displayRoom(rooms[2]);}
+                'action': function() {displayRoom(rooms[1]);}
             }
         ]
     }
   
 ];
 
-function name (room) {
-    let nameInput = document.getElementById('nameInput').value;
-    let nameOutput = document.getElementById('nameOutput').innerText = nameInput;
-    let removeNameInput = document.getElementById('nameInput').remove();
-    elementSubText.innerText = "Welcome to the game";
+//funktion där man skriver sitt namn och namnet visas på skärmen
+// funktionen tar även bort inputfält när knapp är tryckt
 
-    for(i = 0; i < room.buttons.length; i++) {
-        elementButton[i].innerText = room.buttons[i].textNode;
-        elementButton[i].onclick = room.buttons[i].func;
-        // elementButton[i].innerText = 'startgame'
-    }
 
-    for(i = i; i < elementButton.length; i++) {
-        elementButton[i].style.display = 'none';
-        elementButton[i].onclick = null;
-    }
-}; 
-
-displayRoom(rooms[0]);

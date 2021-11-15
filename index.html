@@ -4,24 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500&family=Prompt&family=Roboto+Condensed&family=Roboto:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <script defer src="/main.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <main>
-        <div class="flex align-center justify-center column">
-            <h1 id="headingText">Text</h1>
-            <p id="text">Text</p>
-            <p id="subText">Text</p>
+    <main class="flex column align-center justify-center center">
+        <div>
+            <h1 id="headingText">Welcome to the castle</h1>
+            <p id="text">Your misson is to open up a chest that you will find in one of the rooms and you also need to find the key to open up the chest</p>
+            <p id="subText">Enter your name: </p>
         </div>
         
-        <div class="container flex justify-center align-center">
+        <div class="flex column">
 
             <input type="text" id="nameInput">
-            <!-- eventuellt använda? -->
-            <!-- <button type="button" onclick="enterName()">Start game</button> -->
+            <button class="style-button" id="submit">Submit</button>
             <p id="nameOutput"></p>
+            <button class="style-button" id="start">Start game</button>
+
             
                 
             <div class="grid containerButtons">
