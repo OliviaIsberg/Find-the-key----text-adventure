@@ -28,7 +28,7 @@ startButton.addEventListener('click', function() {
     startButton.classList.toggle('visible', false);
     nameOutput.style.display = 'none';
 
-    displayRoom(rooms[0]);
+    displayRoom(screens[0]);
 });
 
 function displayRoom (room) {
@@ -48,7 +48,7 @@ function displayRoom (room) {
     }
 }
 
-let rooms = [
+let screen = [
     {
         elementHeadingText: 'Welcome to the castle',
         elementText: 'Now you can start exploring the castle!',
@@ -56,7 +56,7 @@ let rooms = [
         buttons: [
             {
                 'textNode': 'Go into the hallway',
-                'action': function() {displayRoom(rooms[1])}
+                'action': function() {displayRoom(screens[1])}
             },
         ]
     },
@@ -67,19 +67,19 @@ let rooms = [
         buttons: [
             {
                 'textNode': 'Go back to first room',
-                'action': function() {displayRoom(rooms[0])}
+                'action': function() {displayRoom(screens[0])}
             },
             {
                 'textNode': 'Go to your left into room number three',
-                'action': function() {displayRoom(rooms[2])}
+                'action': function() {displayRoom(screens[2])}
             },
             {
                 'textNode': 'Go straight ahead into room number five',
-                'action': function() {displayRoom(rooms[4]);}
+                'action': function() {displayRoom(screens[4]);}
             },
             {
                 'textNode': 'Go to your right into room number four',
-                'action': function() {displayRoom(rooms[3]);}
+                'action': function() {displayRoom(screens[3]);}
             }
         ]
     },
@@ -90,11 +90,11 @@ let rooms = [
         buttons: [
             {
                 'textNode': 'Open the chest',
-                'action': function() {displayRoom(rooms[1]);}
+                'action': function() {displayRoom(screens[1]);}
             },
             {
                 'textNode': 'Go back and choose another room',
-                'action': function() {displayRoom(rooms[1]);}
+                'action': function() {displayRoom(screens[1]);}
             }
 
         ]
@@ -106,7 +106,7 @@ let rooms = [
         buttons: [
             {
                 'textNode': 'Click me',
-                'action': function() {displayRoom(rooms[1]);}
+                'action': function() {displayRoom(screens[1]);}
             }
         ]
     },
@@ -118,11 +118,11 @@ let rooms = [
             {
                 'textNode': 'Yes',
                 'isVisible': function() {return state.haveKey === false},
-                'action': function() {state.haveKey = true; displayRoom(rooms[2]);}
+                'action': function() {state.haveKey = true; displayRoom(screens[2]);}
             },
             {
                 'textNode': 'No',
-                'action': function() {displayRoom(rooms[1]);}
+                'action': function() {displayRoom(screens[1]);}
             }
         ]
     }
