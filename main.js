@@ -8,20 +8,24 @@ let submitName = document.getElementById('submit');
 let nameOutput = document.getElementById('nameOutput');
 let startButton = document.getElementById('start');
 
+let name = '';
+
 let state = {
-    name: null,
     haveKey: false
 };
 
+let defaultState = Object.assign({}, state);
+
+
 submitName.addEventListener('click', function() {
-    state.name = nameInput.value;
+    name = nameInput.value;
 
     nameInput.style.display = 'none';
     submitName.style.display = 'none';
     startButton.classList.toggle('visible', true)
 
     elementSubText.innerText = "Welcome to the game";
-    nameOutput.innerText = state.name;
+    nameOutput.innerText = name;
 });
 
 startButton.addEventListener('click', function() {
@@ -94,9 +98,11 @@ let screens = [
         buttons: [
             {
                 'text': 'Restart the game',
-                'action': function() {displayScreen(screens[0]);}
+                'action': function() {
+                    displayScreen(screens[0]);
+                    state = Object.assign({}, defaultState);
+                }
             }
-
         ]
     },
     {
