@@ -31,14 +31,18 @@ startButton.addEventListener('click', function() {
     displayScreen(screens[0]);
 });
 
-function displayScreen (room) {
-    elementHeadingText.innerText = room.header;
-    elementText.innerText = room.text;
-    elementSubText.innerText = room.subText;
+function displayScreen (screen) {
+    elementHeadingText.innerText = screen.header;
+    elementText.innerText = screen.text;
+    elementSubText.innerText = screen.subText;
 
-    for(i = 0; i < room.buttons.length; i++) {
-        elementButton[i].innerText = room.buttons[i].text;
-        elementButton[i].onclick = room.buttons[i].action;
+    let buttons = screen.buttons.filter((button) => !button.hasOwnProperty('isVisible') || (button.hasOwnProperty('isVisible') && button.isVisible()));
+
+    console.log(screen);
+
+    for(i = 0; i < buttons.length; i++) {
+        elementButton[i].innerText = buttons[i].text;
+        elementButton[i].onclick = buttons[i].action;
         elementButton[i].classList.toggle('visible', true);
     }
 
@@ -48,7 +52,7 @@ function displayScreen (room) {
     }
 }
 
-let screen = [
+let screens = [
     {
         header: 'Welcome to the castle',
         text: 'Now you can start exploring the castle!',
@@ -83,50 +87,92 @@ let screen = [
             }
         ]
     },
-    {
+    { // gör om till fälla som dödar spelaren
         header: 'Welcome to room three',
-        text: 'You found the chest!',
-        subText: '',
+        text: 'You\'ve been lured into a trap',
+        subText: 'You\'ve been killed',
         buttons: [
             {
-                'text': 'Open the chest',
-                'action': function() {displayScreen(screens[1]);}
-            },
-            {
-                'text': 'Go back and choose another room',
-                'action': function() {displayScreen(screens[1]);}
+                'text': 'Restart the game',
+                'action': function() {displayScreen(screens[0]);}
             }
 
         ]
     },
     {
         header: 'Welcome to room four',
-        text: 'There is no key in this room',
-        subText: 'Click the button to choose another room',
+        text: 'You found the chest!',
+        subText: '',
         buttons: [
             {
-                'text': 'Click me',
+                'text': 'Go back and choose another room',
                 'action': function() {displayScreen(screens[1]);}
+            },
+            {
+                'text': 'Open the chest',
+                'action': function() {
+                    if(state.haveKey) {
+                        displayScreen(screens[7]);
+                    } else {
+                        displayScreen(screens[6]);
+                    }
+                }
             }
+
         ]
     },
     {
         header: 'Welcome to room five',
-        text: 'You found the key!',
-        subText: 'Do you want to pick up the key?',
+        text: 'It\'s just an empty room with a door in front of you and a door behind you',
+        subText: 'Where do you want to go?',
         buttons: [
             {
-                'text': 'Yes',
-                'isVisible': function() {return state.haveKey === false},
-                'action': function() {state.haveKey = true; displayScreen(screens[2]);}
+                'text': 'Go to room 2',
+                'action': function() {displayScreen(screens[1]);}
             },
             {
-                'text': 'No',
-                'action': function() {displayScreen(screens[1]);}
+                'text': 'Go to room 6',
+                'action': function() {displayScreen(screens[5]);}
             }
         ]
+    },
+    {
+        header: 'Welcome to room six',
+        text: 'Your in a small room but on the floor you see a key.',
+        subText: 'What do you want to do?',
+        buttons: [
+            {
+                'text': 'Pick up key',
+                'isVisible': function() {return state.haveKey === false},
+                'action': function() {state.haveKey = true; displayScreen(screens[5]);}
+            },
+            {
+                'text': 'Go back to room 5',
+                'action': function() {displayScreen(screens[4]);}
+            }
+        ]
+    },
+    {
+        header: 'Welcome to room four',
+        text: 'You try to open the chest but it is locked.',
+        subText: '',
+        buttons: [
+            {
+                'text': 'Go back and choose another room',
+                'action': function() {displayScreen(screens[1]);}
+            },
+            {
+                'text': 'Open the chest',
+                'action': function() {displayScreen(screens[6]);}
+            }
+        ]
+    },
+    {
+        header: 'You won!',
+        text: 'You searched the castle, found the key and opened the treasure chest!',
+        subText: 'Congratulations',
+        buttons: []
     }
-  
 ];
 
 //funktion där man skriver sitt namn och namnet visas på skärmen
