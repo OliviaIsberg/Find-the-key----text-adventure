@@ -32,12 +32,12 @@ startButton.addEventListener('click', function() {
 });
 
 function displayRoom (room) {
-    elementText.innerText = room.elementText;
-    elementSubText.innerText = room.elementSubText;
-    elementHeadingText.innerText = room.elementHeadingText;
+    elementHeadingText.innerText = room.header;
+    elementText.innerText = room.text;
+    elementSubText.innerText = room.subText;
 
     for(i = 0; i < room.buttons.length; i++) {
-        elementButton[i].innerText = room.buttons[i].textNode;
+        elementButton[i].innerText = room.buttons[i].text;
         elementButton[i].onclick = room.buttons[i].action;
         elementButton[i].classList.toggle('visible', true);
     }
@@ -50,78 +50,78 @@ function displayRoom (room) {
 
 let screen = [
     {
-        elementHeadingText: 'Welcome to the castle',
-        elementText: 'Now you can start exploring the castle!',
-        elementSubText: '',
+        header: 'Welcome to the castle',
+        text: 'Now you can start exploring the castle!',
+        subText: '',
         buttons: [
             {
-                'textNode': 'Go into the hallway',
+                'text': 'Go into the hallway',
                 'action': function() {displayRoom(screens[1])}
             },
         ]
     },
     {
-        elementHeadingText: 'Welcome to room number 2',
-        elementText: 'Explore the castle by choosing a room to enter',
-        elementSubText: '',
+        header: 'Welcome to room number 2',
+        text: 'Explore the castle by choosing a room to enter',
+        subText: '',
         buttons: [
             {
-                'textNode': 'Go back to first room',
+                'text': 'Go back to first room',
                 'action': function() {displayRoom(screens[0])}
             },
             {
-                'textNode': 'Go to your left into room number three',
+                'text': 'Go to your left into room number three',
                 'action': function() {displayRoom(screens[2])}
             },
             {
-                'textNode': 'Go straight ahead into room number five',
+                'text': 'Go straight ahead into room number five',
                 'action': function() {displayRoom(screens[4]);}
             },
             {
-                'textNode': 'Go to your right into room number four',
+                'text': 'Go to your right into room number four',
                 'action': function() {displayRoom(screens[3]);}
             }
         ]
     },
     {
-        elementHeadingText: 'Welcome to room three',
-        elementText: 'You found the chest!',
-        elementSubText: '',
+        header: 'Welcome to room three',
+        text: 'You found the chest!',
+        subText: '',
         buttons: [
             {
-                'textNode': 'Open the chest',
+                'text': 'Open the chest',
                 'action': function() {displayRoom(screens[1]);}
             },
             {
-                'textNode': 'Go back and choose another room',
+                'text': 'Go back and choose another room',
                 'action': function() {displayRoom(screens[1]);}
             }
 
         ]
     },
     {
-        elementHeadingText: 'Welcome to room four',
-        elementText: 'There is no key in this room',
-        elementSubText: 'Click the button to choose another room',
+        header: 'Welcome to room four',
+        text: 'There is no key in this room',
+        subText: 'Click the button to choose another room',
         buttons: [
             {
-                'textNode': 'Click me',
+                'text': 'Click me',
                 'action': function() {displayRoom(screens[1]);}
             }
         ]
     },
     {
-        elementHeadingText: 'Welcome to room five',
-        elementText: 'You found the key!',
-        elementSubText: 'Do you want to pick up the key?',
+        header: 'Welcome to room five',
+        text: 'You found the key!',
+        subText: 'Do you want to pick up the key?',
         buttons: [
             {
-                'textNode': 'Yes',
+                'text': 'Yes',
                 'isVisible': function() {return state.haveKey === false},
                 'action': function() {state.haveKey = true; displayRoom(screens[2]);}
             },
             {
-                'textNode': 'No',
+                'text': 'No',
                 'action': function() {displayRoom(screens[1]);}
             }
         ]
