@@ -1,4 +1,4 @@
-//Hämtar ut element ifrån dom
+
 let elementText = document.getElementById('text');
 let elementButton = document.getElementsByName('optionButton');
 let elementSubText = document.getElementById('subText');
@@ -35,6 +35,10 @@ startButton.addEventListener('click', function() {
     displayScreen(screens[0]);
 });
 
+/**
+ * displayScreen sets the header, main text, sub text and buttons according to its screen object
+ * @param {Object} screen - a screen object that describes a screen and its text and buttons
+ */
 function displayScreen (screen) {
     elementHeadingText.innerText = screen.header;
     elementText.innerText = screen.text;
@@ -56,6 +60,22 @@ function displayScreen (screen) {
     }
 }
 
+/**
+ * @typedef {Object} Button - Represents an in-game button
+ * @property {string} text
+ * @property {Function} [isVisible] - optional
+ * @property {Function} action
+ */
+
+/**
+ * @typedef {Object} Screen - Represents an in-game screen containing a header, main text, sub text and buttons
+ * @property {string} header
+ * @property {string} text
+ * @property {string} subText
+ * @property {Button[]} buttons
+ */
+
+// Screen[] screens = [...];
 let screens = [
     {
         header: 'Welcome to the castle',
@@ -103,6 +123,7 @@ let screens = [
                     state = Object.assign({}, defaultState);
                 }
             }
+
         ]
     },
     {
