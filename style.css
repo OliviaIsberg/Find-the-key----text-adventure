@@ -6,8 +6,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Prompt', sans-serif;
-    height: 100%;
-    width: 100%;
+    
 }
 
 .flex{display: flex;}
@@ -19,19 +18,29 @@ body {
 
 main {
     height: 100vh;
-    width: 60vw;
+    width: 100vw;
     margin: auto;
-    background-color: aliceblue;
+    background: #333;
 }
 
 .container {
-    height: 100vh;
-    width: 60vw;
+    height: 70vh;
+    width: 50vw;
     margin: auto;
+    background-color: cornflowerblue;
+    border-radius: 15px;
+    padding: 1.5rem;
+    color: #fff;
+    font-size: 20px;
+}
+
+.container:hover {
+    box-shadow: 1px 3px 2px 1px rgba(197, 211, 205, 0.2);
 }
 
 #headingText {
     margin: 0;
+    color: #333;
 }
 input {
     border-radius: 5px;
@@ -50,6 +59,7 @@ button {
     border-radius: 15px;
     padding: 5px 10px;
     font-weight: 700;
+    font-size: 15px;
 }
 
 button:hover {
@@ -82,4 +92,9 @@ button:hover {
     display: inline;
 }
 
-
+@media screen and (max-width: 900px) {
+    .container {
+        width: 80vw;
+        padding: 2rem;
+    }
+}
