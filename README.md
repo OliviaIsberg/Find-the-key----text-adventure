@@ -1,6 +1,6 @@
-Titel på detta spel är Find the key.
+The name of this game is Find the key.
 
-Detta ska bli ett text adventure spel där användaren klickar på olika knappar för att utföra ett uppdrag.
+In this game your misson is på open a treasure chest and to do that you 
+first need to find the key. When you have opened the chest you win the game. 
 
-Spelet ska gå ut på att i ett rum så finns det en kista som är låst och i ett annat rum så finns där en nyckel som man behöver för att öppna kistan.
-När man har lyckats med det så är spelet slut. 
+https://github.com/OliviaIsberg/Find-the-key----text-adventure
