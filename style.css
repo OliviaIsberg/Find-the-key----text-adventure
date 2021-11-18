@@ -8,7 +8,7 @@ body {
     font-family: 'Prompt', sans-serif;
     
 }
-
+/* reusable classes */
 .flex{display: flex;}
 .justify-center{justify-content: center;}
 .align-center{align-items: center;}
@@ -21,25 +21,38 @@ main {
     width: 100vw;
     margin: auto;
     background: rgb(3, 15, 22);
+    background-image: url(castle.jpg);
 }
 
 .container {
     height: 70vh;
     width: 50vw;
+    width: 60rem;
     margin: auto;
-    background-color: rgb(254, 210, 210);
+    background:rgba(0,0 ,0, 0.7);
     border-radius: 15px;
     padding: 1.5rem;
     font-size: 20px;
+    backdrop-filter: blur(7px);
+    color: #fff;;
 }
 
 #headingText {
     margin: 0;
-    color: #333;
+    color: #fff;
 }
+
 input {
-    border-radius: 5px;
-    
+    margin: 1rem 0;
+    background: transparent;
+    color: #fff;
+    border: none;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.5);
+    font-size: 110%;
+}
+
+input:focus {
+    outline: none;
 }
 
 .block {
@@ -48,18 +61,21 @@ input {
 }
 
 button {
-    margin-top: 1rem;
-    color: #333;
-    background-color: rgb(254, 135, 214);
-    border-radius: 15px;
-    padding: 5px 10px;
+    margin: 0;
+    color: #fff;
+    background-color: rgba(255, 255, 255, .2);
+    border: none;
+    border-radius: 4px;
+    padding: 1rem;
     font-weight: 700;
     font-size: 15px;
+    cursor: pointer;
 }
-
+/* 
+hover effect on buttons */
 button:hover {
-    background-color: rgb(253, 170, 225);
-    box-shadow: 6px 6px 2px 1px rgba(21, 95, 64, 0.2);
+    background-color: rgba(255, 255, 255, .4);
+    background: linear-gradient(90deg, rgba(255, 255, 255, .3) 0%, rgba(255, 255, 255, .5) 50%, rgba(255, 255, 255, .3) 100%);
 }
 
 
@@ -80,16 +96,31 @@ button:hover {
 
 .containerButtons button {
     display: none;
-    margin-top: 1rem;
 }
 
 .containerButtons button.visible {
     display: inline;
 }
 
-@media screen and (max-width: 900px) {
+/* for smaller screens */
+@media screen and (max-width: 1200px) {
     .container {
         width: 80vw;
         padding: 2rem;
     }
+}
+
+/* for small screens */
+@media screen and (max-width: 576px) {
+    main {
+        align-items: stretch;
+    }
+
+    .container {
+        width: auto;
+        height: auto;
+        margin: 0;
+        border-radius: 0;
+    }
+    
 }

@@ -89,8 +89,8 @@ let screens = [
         ]
     },
     {
-        header: 'Welcome to room number 2',
-        text: 'Explore the castle by choosing a room to enter',
+        header: 'Explore the castle by choosing a room to enter',
+        text: '',
         subText: '',
         buttons: [
             {
