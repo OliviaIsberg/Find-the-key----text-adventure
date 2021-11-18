@@ -181,7 +181,7 @@ let screens = [
     },
     {
         header: 'Welcome to room four',
-        text: 'You try to open the chest but it is locked.',
+        text: 'You try to open the chest but it is locked. You have to find the key before you can open it!',
         subText: '',
         buttons: [
             {
@@ -201,8 +201,5 @@ let screens = [
         buttons: []
     }
 ];
-
-//funktion där man skriver sitt namn och namnet visas på skärmen
-// funktionen tar även bort inputfält när knapp är tryckt
 
 
