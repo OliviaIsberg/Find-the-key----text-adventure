@@ -106,7 +106,7 @@ let screens = [
                 'action': function() {displayScreen(screens[4]);}
             },
             {
-                'text': 'Go into the  master bedroom',
+                'text': 'Go into the master bedroom',
                 'action': function() {displayScreen(screens[3]);}
             }
         ]
