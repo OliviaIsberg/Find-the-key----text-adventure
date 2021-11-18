@@ -18,7 +18,7 @@ let defaultState = Object.assign({}, state);
 
 
 submitName.addEventListener('click', function() {
-    name = nameInput.value;
+    name = nameInput.value.trim();
 
     nameInput.style.display = 'none';
     submitName.style.display = 'none';
@@ -197,7 +197,7 @@ let screens = [
     {
         header: 'You won!',
         text: 'You searched the castle, found the key and opened the treasure chest!',
-        subText: 'Congratulations',
+        subText: 'Congratulations!',
         buttons: []
     }
 ];
