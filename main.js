@@ -80,41 +80,41 @@ let screens = [
     {
         header: 'Welcome to the castle',
         text: 'Now you can start exploring the castle!',
-        subText: '',
+        subText: 'You are standing in front of a big golden door',
         buttons: [
             {
-                'text': 'Go into the hallway',
+                'text': 'Enter the castle',
                 'action': function() {displayScreen(screens[1])}
             },
         ]
     },
     {
-        header: 'Explore the castle by choosing a room to enter',
-        text: '',
+        header: 'You are in a hallway with diffrent ways you can go',
+        text: 'Where do you want to go?',
         subText: '',
         buttons: [
             {
-                'text': 'Go back to first room',
+                'text': 'Go back outside to the golden door',
                 'action': function() {displayScreen(screens[0])}
             },
             {
-                'text': 'Go to your left into room number three',
+                'text': 'Take the staircase that leeds to the tower ',
                 'action': function() {displayScreen(screens[2])}
             },
             {
-                'text': 'Go straight ahead into room number five',
+                'text': 'Go downstairs',
                 'action': function() {displayScreen(screens[4]);}
             },
             {
-                'text': 'Go to your right into room number four',
+                'text': 'Go to your right and open a red door',
                 'action': function() {displayScreen(screens[3]);}
             }
         ]
     },
     { /**Trap , kills player */
-        header: 'Welcome to room three',
-        text: 'You\'ve been lured into a trap',
-        subText: 'You\'ve been killed',
+        header: 'You\'ve been lured into a trap',
+        text: 'You\'ve been killed',
+        subText: '',
         buttons: [
             {
                 'text': 'Restart the game',
@@ -127,9 +127,9 @@ let screens = [
         ]
     },
     {
-        header: 'Welcome to room four',
-        text: 'You found the chest!',
-        subText: '',
+        header: 'Welcome to the master bedroom',
+        text: 'There is nothing in here except a big bed, you should look under the bed...',
+        subText: 'You found the chest!',
         buttons: [
             {
                 'text': 'Go back and choose another room',
@@ -149,24 +149,24 @@ let screens = [
         ]
     },
     {
-        header: 'Welcome to room five',
-        text: 'It\'s just an empty room with a door in front of you and a door behind you',
+        header: 'Now you are in the basement',
+        text: 'It\'s just an empty room with a elevator in front of you and the door you came from behind you',
         subText: 'Where do you want to go?',
         buttons: [
             {
-                'text': 'Go to room 2',
+                'text': 'Go back and choose another room',
                 'action': function() {displayScreen(screens[1]);}
             },
             {
-                'text': 'Go to room 6',
+                'text': 'Step into the elevator',
                 'action': function() {displayScreen(screens[5]);}
             }
         ]
     },
     {
-        header: 'Welcome to room six',
-        text: 'Your in a small room but on the floor you see a key.',
-        subText: 'What do you want to do?',
+        header: 'Welcome to the dining hall',
+        text: 'It\' a very big room but if you look closely you see a small item in the left corner...',
+        subText: 'You found the key! What do you want to do?',
         buttons: [
             {
                 'text': 'Pick up key',
@@ -174,13 +174,13 @@ let screens = [
                 'action': function() {state.haveKey = true; displayScreen(screens[5]);}
             },
             {
-                'text': 'Go back to room 5',
+                'text': 'Go back to the basement',
                 'action': function() {displayScreen(screens[4]);}
             }
         ]
     },
     {
-        header: 'Welcome to room four',
+        header: 'Welcome to the master bedroom',
         text: 'You try to open the chest but it is locked. You have to find the key before you can open it!',
         subText: '',
         buttons: [
