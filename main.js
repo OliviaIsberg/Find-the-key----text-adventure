@@ -98,7 +98,7 @@ let screens = [
                 'action': function() {displayScreen(screens[0])}
             },
             {
-                'text': 'Take the staircase that leeds to the tower ',
+                'text': 'Take the staircase that leads to the tower ',
                 'action': function() {displayScreen(screens[2])}
             },
             {
