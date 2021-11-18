@@ -1,8 +1,4 @@
-html {
-    margin: 0;
-}
-
-body {
+html, body {
     margin: 0;
     padding: 0;
     font-family: 'Prompt', sans-serif;
@@ -37,12 +33,7 @@ main {
     color: #fff;;
 }
 
-#headingText {
-    margin: 0;
-    color: #fff;
-}
-
-input {
+.container input {
     margin: 1rem 0;
     background: transparent;
     color: #fff;
@@ -51,16 +42,11 @@ input {
     font-size: 110%;
 }
 
-input:focus {
+.container input:focus {
     outline: none;
 }
 
-.block {
-    display: block;
-    margin: auto;
-}
-
-button {
+.container button {
     margin: 0;
     color: #fff;
     background-color: rgba(255, 255, 255, .2);
@@ -71,19 +57,18 @@ button {
     font-size: 15px;
     cursor: pointer;
 }
-/* 
-hover effect on buttons */
-button:hover {
+
+/* hover effect on buttons */
+.container button:hover {
     background-color: rgba(255, 255, 255, .4);
     background: linear-gradient(90deg, rgba(255, 255, 255, .3) 0%, rgba(255, 255, 255, .5) 50%, rgba(255, 255, 255, .3) 100%);
 }
 
-
-#start {
+.container #start {
     display: none;
 }
 
-#start.visible {
+.container #start.visible {
     display: inline;
 }
 

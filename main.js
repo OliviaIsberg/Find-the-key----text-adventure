@@ -1,4 +1,4 @@
-
+/**Get elements from dom */
 let elementText = document.getElementById('text');
 let elementButton = document.getElementsByName('optionButton');
 let elementSubText = document.getElementById('subText');
@@ -9,7 +9,7 @@ let nameOutput = document.getElementById('nameOutput');
 let startButton = document.getElementById('start');
 
 let name = '';
-
+/**State */
 let state = {
     haveKey: false
 };
@@ -111,7 +111,7 @@ let screens = [
             }
         ]
     },
-    { // gör om till fälla som dödar spelaren
+    { /**Trap , kills player */
         header: 'Welcome to room three',
         text: 'You\'ve been lured into a trap',
         subText: 'You\'ve been killed',
