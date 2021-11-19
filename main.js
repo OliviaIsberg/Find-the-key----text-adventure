@@ -165,7 +165,7 @@ let screens = [
     },
     {
         header: 'Welcome to the dining hall',
-        text: 'It\' a very big room but if you look closely you see a small item in the left corner...',
+        text: 'It\'s a very big room but if you look closely you see a small item in the left corner...',
         subText: 'You found the key! What do you want to do?',
         buttons: [
             {
