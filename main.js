@@ -9,6 +9,7 @@ let nameOutput = document.getElementById('nameOutput');
 let startButton = document.getElementById('start');
 
 let name = '';
+
 /**State */
 let state = {
     haveKey: false
@@ -19,6 +20,10 @@ let defaultState = Object.assign({}, state);
 
 submitName.addEventListener('click', function() {
     name = nameInput.value.trim();
+    if(name === '') {
+        elementSubText.innerText = "You must input a valid name before starting";
+        return
+    }
 
     nameInput.style.display = 'none';
     submitName.style.display = 'none';
@@ -45,8 +50,6 @@ function displayScreen (screen) {
     elementSubText.innerText = screen.subText;
 
     let buttons = screen.buttons.filter((button) => !button.hasOwnProperty('isVisible') || (button.hasOwnProperty('isVisible') && button.isVisible()));
-
-    console.log(screen);
 
     for(i = 0; i < buttons.length; i++) {
         elementButton[i].innerText = buttons[i].text;
@@ -89,12 +92,12 @@ let screens = [
         ]
     },
     {
-        header: 'You are in a hallway with diffrent ways you can go',
+        header: 'You are in a big hallway',
         text: 'Where do you want to go?',
         subText: '',
         buttons: [
             {
-                'text': 'Go back outside to the golden door',
+                'text': 'Go back outside through the golden door',
                 'action': function() {displayScreen(screens[0])}
             },
             {
@@ -132,7 +135,7 @@ let screens = [
         subText: 'You found the chest!',
         buttons: [
             {
-                'text': 'Go back and choose another room',
+                'text': 'Go back to the hallway',
                 'action': function() {displayScreen(screens[1]);}
             },
             {
@@ -150,11 +153,11 @@ let screens = [
     },
     {
         header: 'Now you are in the basement',
-        text: 'It\'s just an empty room with a elevator in front of you and the door you came from behind you',
+        text: 'It\'s just an empty room with an elevator in front of you and the door you came from behind you',
         subText: 'Where do you want to go?',
         buttons: [
             {
-                'text': 'Go back and choose another room',
+                'text': 'Go back to the hallway',
                 'action': function() {displayScreen(screens[1]);}
             },
             {
@@ -185,7 +188,7 @@ let screens = [
         subText: '',
         buttons: [
             {
-                'text': 'Go back and choose another room',
+                'text': 'Go back to the hallway',
                 'action': function() {displayScreen(screens[1]);}
             },
             {
